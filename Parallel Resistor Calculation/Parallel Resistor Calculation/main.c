@@ -2,29 +2,28 @@
 #include "stdio_setup.h"
 #define RN printf("\r\n")
 
+float resultingRes(float res1, float res2);
+
 int main(void)
 {
-	
-	
-	float resultingR(float R1, float R2);
+	float  res1, res2;
 	
 	UartInit();
-	//float  R1, R2;
-	float res = resultingR(10, 20);
 	
-	//printf("Enter resistance 1 value: ");
-	//scanf("%f", &R1);
-	//RN;
-	//printf("Enter resistance 2 value: ");
-	//scanf("%f", &R2);
-	//RN;
-	printf("Result of calculation: %.2f", res);
+	printf("Enter resistance 1 value: ");
+	scanf("%f", &res1);
+	RN;
+	printf("Enter resistance 2 value: ");
+	scanf("%f", &res2);
+	RN;
+	printf("Result of calculation: %.2f", resultingRes(res1, res2));
 	RN;
 
 	while(1) {
 	}
-	
-	float resultingR( float R1, float R2){
-		return (R1 * R2) / (R1 + R2);
-	}
+}
+
+float resultingRes( float res1, float res2){
+	float result = (res1 * res2) / (res1 + res2);
+	return result;
 }
