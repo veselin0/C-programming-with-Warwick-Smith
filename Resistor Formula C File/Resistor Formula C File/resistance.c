@@ -9,6 +9,6 @@ float parallelRes( float res1, float res2){
 	return result;
 }
 
-float serialRes(float res1, float res2, float res3){
+float serialRes(float res1, float res2, float res3) {
 	return (res1 + res2 + res3);
 }

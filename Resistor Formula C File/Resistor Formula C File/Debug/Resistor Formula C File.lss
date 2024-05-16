@@ -330,7 +330,7 @@ float parallelRes( float res1, float res2){
 
 0000034c <serialRes>:
 
-float serialRes(float res1, float res2, float res3){
+float serialRes(float res1, float res2, float res3) {
      34c:	cf 92       	push	r12
      34e:	df 92       	push	r13
      350:	ef 92       	push	r14
@@ -344,6 +344,7 @@ float serialRes(float res1, float res2, float res3){
      360:	a7 01       	movw	r20, r14
      362:	96 01       	movw	r18, r12
      364:	0e 94 ea 01 	call	0x3d4	; 0x3d4 <__addsf3>
+}
      368:	1f 91       	pop	r17
      36a:	0f 91       	pop	r16
      36c:	ff 90       	pop	r15
