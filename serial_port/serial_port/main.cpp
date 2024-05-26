@@ -7,10 +7,12 @@
 
 
 #define F_CPU 16000000UL
-//#define BAUD 9600
-//#define BAUD_TOL 2
+#define BAUD 9600
+#define BAUD_TOL 2
 
 #include <avr/io.h>
+#include <util/setbaud.h>
+
 
 void UartInit(void);
 void UartTxByte(char data);
@@ -26,6 +28,8 @@ int main(void)
 		UartInit();
 		UartTxByte('H');
 		UartTxByte('i');
+		
+			
 		while(1) {
 			rx_data = UartRxByte();
 			if (rx_data > -1) {
@@ -39,8 +43,11 @@ int main(void)
 void UartInit(void)
 {
 	// set UART0 baud rate
-	UBRR0H = 0x00;
-	UBRR0L = 0x67;
+	UBRR0H = UBRRH_VALUE;
+	UBRR0L = UBRRL_VALUE;
+	//UBRR0H = 0x00;
+	//UBRR0L = 0x67;
+	//UBRR0L = 103;
 	// dedicate pins to USART0 for transmit and receive
 	UCSR0B = 0x18;
 	// 8-bit, 1 stop bit, no parity, asynchronous UART

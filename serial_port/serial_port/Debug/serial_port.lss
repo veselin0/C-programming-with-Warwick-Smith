@@ -77,11 +77,14 @@ Disassembly of section .text:
 void UartInit(void)
 {
 	// set UART0 baud rate
-	UBRR0H = 0x00;
+	UBRR0H = UBRRH_VALUE;
   80:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7f80c5>
-	UBRR0L = 0x67;
+	UBRR0L = UBRRL_VALUE;
   84:	87 e6       	ldi	r24, 0x67	; 103
   86:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7f80c4>
+	//UBRR0H = 0x00;
+	//UBRR0L = 0x67;
+	//UBRR0L = 103;
 	// dedicate pins to USART0 for transmit and receive
 	UCSR0B = 0x18;
   8a:	88 e1       	ldi	r24, 0x18	; 24
@@ -141,6 +144,8 @@ int UartRxByte(void)
 		UartTxByte('i');
   c6:	89 e6       	ldi	r24, 0x69	; 105
   c8:	0e 94 4c 00 	call	0x98	; 0x98 <_Z10UartTxBytec>
+		
+			
 		while(1) {
 			rx_data = UartRxByte();
   cc:	0e 94 53 00 	call	0xa6	; 0xa6 <_Z10UartRxBytev>
